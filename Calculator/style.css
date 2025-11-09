@@ -1,0 +1,133 @@
+:root {
+    --bg: #0f1724;
+    --panel: #0b1220;
+    --accent: #10b981;
+    --muted: #94a3b8;
+    --button: #111827;
+    --button-surface: #0b1220;
+    --danger: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, "Helvetica Neue", Arial;
+}
+
+body {
+    background: linear-gradient(180deg, #071126 0%, #081229 100%);
+    color: #e6e6e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.calculator {
+    width: 360px;
+    max-width: 95vw;
+    border-radius: 12px;
+    padding: 18px;
+    background: linear-gradient(180deg, var(--panel), rgb(109 109 109));
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.display {
+    width: 100%;
+    background: transparent;
+    color: var(--muted);
+    padding: 14px;
+    border-radius: 8px;
+    display: flex;
+    gap: 6px;
+    min-height: 88px;
+}
+
+.display .expression {
+    font-size: 0.95rem;
+    color: var(--muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.display .result {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #e6eef8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.keys {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+button.key {
+    padding: 14px 10px;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    font-size: 1.05rem;
+    background: linear-gradient(180deg, var(--button), rgb(136, 136, 141));
+    color: #e6eef8;
+    box-shadow: 0 4px 10px rgba(2, 6, 23, 0.6);
+}
+
+button.key.operator {
+    color: var(--accent);
+    background: linear-gradient(180deg, #071029, #091623);
+}
+
+button.key.equal {
+    grid-column: span 2;
+    background: linear-gradient(180deg, #0ea5a4, #0b9390);
+    color: #031018;
+    font-weight: 700;
+
+}
+
+button.key.clear {
+    color: var(--danger);
+    background: linear-gradient(180deg, #2a0b0b, #1a0606);
+}
+
+button.key.wide {
+    grid-column: span 2;
+}
+
+button.key:active {
+    transform: translateY(1px);
+}
+
+/* small helper */
+.muted-small {
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-top: 8px;
+    text-align: center;
+}
+
+@media (max-width: 420px) {
+    .display .result {
+        font-size: 1.3rem;
+    }
+
+    .calculator {
+        padding: 12px;
+
+        button.key {
+            padding: 12px 8px;
+            font-size: 1rem;
+        }
+    }
+}
